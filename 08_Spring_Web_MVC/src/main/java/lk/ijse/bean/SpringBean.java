@@ -1,42 +1,39 @@
 package lk.ijse.bean;
 
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpringBean implements InitializingBean {
-
-    @Value("Ishuu")
-    private String name;
-
+public class SpringBean implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
     public SpringBean(){
         System.out.println("Spring bean Constructor");
-        System.out.println(name); //me welwedi mek satisfied karala na eky methndi ek nowenne =populate properties
     }
 
     @Override
-    public void afterPropertiesSet(){
-        System.out.println(name);
-    }
-   /* @Autowired(required = false)
-    public SpringBean(@Value("Ishani") String name, @Value("5") int id,@Value("true") boolean b){
-
-        System.out.println("Spring bean");
-        System.out.println(name);
-        System.out.println(id);
-        System.out.println(b);
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("beanFactory");
     }
 
-    @Autowired(required = false)
-    public SpringBean(@Value("Ishani") String name,@Value("true") boolean b){
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("beanName ") ;
+    }
 
-        System.out.println("Spring bean");
-        System.out.println(name);
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy");
+    }
 
-        System.out.println(b);
-    }*/
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("afterProperty");
+    }
 
-
-
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("application context");
+    }
 }
