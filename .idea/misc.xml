@@ -9,6 +9,9 @@
         <option value="$PROJECT_DIR$/03_Spring_DI/pom.xml" />
         <option value="$PROJECT_DIR$/04_FullModeVsLightMode/pom.xml" />
         <option value="$PROJECT_DIR$/Configuration/pom.xml" />
+        <option value="$PROJECT_DIR$/06_Runtime_Value_Injection/pom.xml" />
+        <option value="$PROJECT_DIR$/07_Spring_Environment/pom.xml" />
+        <option value="$PROJECT_DIR$/08_Spring_Web_MVC/pom.xml" />
       </list>
     </option>
   </component>
