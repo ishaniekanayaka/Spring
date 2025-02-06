@@ -15,17 +15,17 @@ public class PathVariableController {
 
    /* @GetMapping(path = "{id}")
     public String test1(@PathVariable("id") String id){
-        return "Hello ath Variable!!! "+id; //api dena oni value ekak enaawa value nathuw ayawwoth not found
+        return "Hello path Variable!!! "+id; //api dena oni value ekak enaawa value nathuw ayawwoth not found
     }*/
 
     /*@GetMapping(path = "{id}/{name}")
     public String test1(@PathVariable("id") String id  , @PathVariable("name") String name){
-        return "Hello ath Variable!!! "+id + name; Hello ath Variable!!! Ishaniakila
+        return "Hello path Variable!!! "+id + name; Hello ath Variable!!! Ishaniakila
     }*/
 
 
-    @GetMapping(path = "{id:[A][0-9]{3}}")
+    @GetMapping(path = "{id:[A][0-9]{3}}") //mulata A iallkm 3k samaka
     public String test1(@PathVariable("id") String id ){
-        return "Hello ath Variable!!! "+id ;
+        return "Hello path Variable!!! "+id ; //Hello ath Variable!!! A001
     }
 }
