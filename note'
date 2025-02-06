@@ -1,0 +1,13 @@
+*configuration file eka watene  root application context(Web root config) or servlet context(Web App config)
+
+1.root application context
+2. servlet context
+
+
+mema context dekak thibata e deka wena wenam context ekata register wenne
+mema dekaka thiyenne hethuw spring framework eka hdennem seperation of concens (wena wenam soncens wenn)
+web aplication ekk kiynne enterprice web application - usersla godk inn ekk
+ekkin mange krnw controllers ow mewe aniken business logic ow mewe
+
+root = parent context
+servlet context  = child context

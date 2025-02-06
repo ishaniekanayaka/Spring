@@ -14,22 +14,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"lk.ijse.controller", "lk.ijse.bean"})
+@ComponentScan(basePackages = "lk.ijse.controller")
 
 
 public class WebAppConfig implements WebMvcConfigurer {
-    @Bean
-    public ViewResolver viewResolver(){
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp"); // methana dena file warge nama denna oni jsp ekak nam .jsp kiyaa
-        viewResolver.setOrder(2);
-        return viewResolver;
-    }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/WEB-INF/views/**")
-                .addResourceLocations("/WEB-INF/views/");
-    }
 }
