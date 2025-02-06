@@ -17,7 +17,7 @@ public class ParamsController {
     //eke error ekak enw eka sold out karanne------->
 
 
-   //   http://localhost:8080/09_Rest_Controller_Web_exploded/params?id=15
+   //   http://localhost:8080/09_Rest_Controller_Web_exploded/params?id=15  //mee widiyata ganne postmen eke query param wala gahnn oni
     @GetMapping(params = {"id"})
     public String test1(@RequestParam("id") String id){
         return "Hello Params id: " + id;
