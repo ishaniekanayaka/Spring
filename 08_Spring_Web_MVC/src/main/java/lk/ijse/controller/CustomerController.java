@@ -1,11 +1,12 @@
 package lk.ijse.controller;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+//@Controller - monolithic architecture එකේදි use කරයි.අඩුවෙන් use වෙන්නෙ. පරණයි.
 //web mvc
 //model,view, controller
 //model - business logic and data access karanna - model eka application wala use karana widi wens samahara ewage data transfer widiyata use karanawa

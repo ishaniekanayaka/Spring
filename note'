@@ -11,3 +11,16 @@ ekkin mange krnw controllers ow mewe aniken business logic ow mewe
 
 root = parent context
 servlet context  = child context
+
+
+@RestController
+Backend එකේ ඉදන් යවන ඕනම data format එකක්(String,HTML,JSON),
+HTTP response එකක් විදියට wrap කරල front end එකට යවන්න පුලුවන්.
+(වැවිපුරම use වෙන format එක JSON)
+
+@RequestMapping("/a") <- handler mapping
+CustomerController එක "/a" URL path එකට map කරයි.
+
+@GetMapping | @PostMapping | @PutMapping | @DeleteMapping
+http method එක කියන්න Use කරයි. (Handler method උඩින් දාන annotations)
+

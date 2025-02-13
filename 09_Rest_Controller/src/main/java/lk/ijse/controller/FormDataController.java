@@ -1,10 +1,8 @@
 package lk.ijse.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.dto.CustomerDTO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("form")
@@ -22,12 +20,21 @@ public class FormDataController {
     }*/
 
     //http://localhost:8080/09_Rest_Controller_Web_exploded/form?name=Ishani&address=Matara
-    @GetMapping
-    public String test2(@RequestParam("name") String name,@RequestParam("address") String address){
+   /* @PostMapping
+    public String test1(@RequestParam("name") String name,@RequestParam("address") String address){
         return "Hello Form Data.........: )"+ name +" "+ address;
     }
-
+*/
     //dan karanna hadann req eken ena data kelinma object ekakata allaganna-> ekata CustomerDto eka hadagannwa
 
+    @PostMapping
+    public String test2(@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastname,@RequestParam("age") Integer age){
+        return "Hello Form Data.........: )"+ firstName+" "+ lastname+" "+age;
+    }
+
+    @PostMapping(path = "test2")
+    public String test3(@ModelAttribute  CustomerDTO customerDTO){
+        return customerDTO.toString();
+    }
 
 }

@@ -12,8 +12,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 // ====================child context ===========
 
-@Configuration
+//Spring container එකට spring beans(POJOs) වැටෙන්න ඕන විදිය කියන class එකක්.
+@Configuration//Beans, Spring Container එකට scan කරල දෙන්නෙ configuration class එකක් හරහා
+
 @EnableWebMvc
+//configuration class එකට Beans scan කරන්න ඕන path එක කොහෙද කියල කියනො.
 @ComponentScan(basePackages = "lk.ijse.controller")
 
 
