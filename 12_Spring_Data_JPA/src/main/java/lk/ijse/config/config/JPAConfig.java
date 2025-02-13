@@ -3,6 +3,7 @@ package lk.ijse.config.config;
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -16,6 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "lk.ijse.config.repository")
 public class JPAConfig {
 
     //connection - mysql (mulinma  connection hadanna oni)
@@ -30,6 +32,7 @@ public class JPAConfig {
         em.setDataSource(dataSource);
         em.setJpaVendorAdapter(jpaVendorAdapter);
         em.setPackagesToScan("lk.ijse.entity");
+
         return em;
     }
 
@@ -38,8 +41,9 @@ public class JPAConfig {
         DriverManagerDataSource  dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/spring?createDatabaseIfNotExists=true");
+        //dataSource.setUrl("jdbc:mysql://localhost:3306/spring?createDatabase=true&useSSL=false");
         dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setPassword("Ijse@123");
         return dataSource;
     }
 

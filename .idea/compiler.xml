@@ -9,6 +9,7 @@
         <module name="07_Spring_Environment" />
         <module name="09_Rest_Controller" />
         <module name="Configuration" />
+        <module name="Z13_Spring_Boot" />
         <module name="08_Spring_Web_MVC" />
         <module name="04_FullModeVsLightMode" />
         <module name="01_Spring_Core" />
@@ -23,5 +24,10 @@
       <module name="09" target="1.8" />
       <module name="11_Frontend" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Z13_Spring_Boot" options="-parameters" />
+    </option>
   </component>
 </project>
