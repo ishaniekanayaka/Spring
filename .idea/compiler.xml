@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="07_Spring_Environment" />
-        <module name="09_Rest_Controller" />
         <module name="Configuration" />
         <module name="Z13_Spring_Boot" />
         <module name="08_Spring_Web_MVC" />
