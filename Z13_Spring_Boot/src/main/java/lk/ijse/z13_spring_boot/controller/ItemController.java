@@ -30,4 +30,10 @@ public class ItemController {
         itemService.updateItem(itemDTO);
         return true;
     }
+
+    @DeleteMapping("delete/{id}")
+    public boolean deleteItem(@PathVariable("id") int id){
+        itemService.deleteItem(id);
+        return true;
+    }
 }

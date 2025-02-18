@@ -48,4 +48,7 @@ public class ItemService {
             itemRepo.save(item);
         }
     }
+    public void deleteItem(int code){
+        itemRepo.deleteById(code);
+    }
 }
