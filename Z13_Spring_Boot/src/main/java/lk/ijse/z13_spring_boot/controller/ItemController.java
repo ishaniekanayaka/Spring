@@ -25,4 +25,9 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
+    @PutMapping("update")
+    public boolean updateItem(@RequestBody ItemDTO itemDTO){
+        itemService.updateItem(itemDTO);
+        return true;
+    }
 }

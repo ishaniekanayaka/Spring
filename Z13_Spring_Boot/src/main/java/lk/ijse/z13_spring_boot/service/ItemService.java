@@ -38,4 +38,14 @@ public class ItemService {
                 item.getQty()
         )).collect(Collectors.toList());
     }
+
+    public void updateItem(ItemDTO itemDTO){
+        Item item = itemRepo.findById(itemDTO.getCode()).orElse(null);
+        if (item!=null){
+            item.setItemName(itemDTO.getItemName());
+            item.setPrice(itemDTO.getPrice());
+            item.setQty(itemDTO.getQty());
+            itemRepo.save(item);
+        }
+    }
 }
