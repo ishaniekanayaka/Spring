@@ -46,6 +46,7 @@ public class CustomerSevice {
                 customer.getId(), customer.getName(), customer.getAddress()
         )).collect(Collectors.toList());
     }
+
     public void deleteCustomer(int id) {
         customerRepo.deleteById(id);
     }

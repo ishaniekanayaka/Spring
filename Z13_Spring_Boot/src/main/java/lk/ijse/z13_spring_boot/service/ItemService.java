@@ -6,6 +6,9 @@ import lk.ijse.z13_spring_boot.repo.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ItemService {
 
@@ -24,5 +27,15 @@ public class ItemService {
         );
         itemRepo.save(item);
         return true;
+    }
+
+    public List<ItemDTO> getAllItems(){
+        List<Item> items = itemRepo.findAll();
+        return items.stream().map(item -> new ItemDTO(
+                item.getCode(),
+                item.getItemName(),
+                item.getPrice(),
+                item.getQty()
+        )).collect(Collectors.toList());
     }
 }
