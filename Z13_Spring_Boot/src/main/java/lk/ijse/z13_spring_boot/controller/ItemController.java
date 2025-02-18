@@ -15,9 +15,9 @@ public class ItemController {
     private ItemService itemService;
 
     @PostMapping("save")
-    public boolean saveItem(@RequestBody ItemDTO itemDTO){
-        itemService.addItem(itemDTO);
-        return true;
+    public String saveItem(@RequestBody ItemDTO itemDTO){
+        String result = itemService.addItem(itemDTO);
+        return result;
     }
 
     @GetMapping("getAll")
@@ -26,14 +26,14 @@ public class ItemController {
     }
 
     @PutMapping("update")
-    public boolean updateItem(@RequestBody ItemDTO itemDTO){
+    public String updateItem(@RequestBody ItemDTO itemDTO){
         itemService.updateItem(itemDTO);
-        return true;
+        return "Item Updated Successfully :)";
     }
 
     @DeleteMapping("delete/{id}")
-    public boolean deleteItem(@PathVariable("id") int id){
+    public String deleteItem(@PathVariable("id") int id){
         itemService.deleteItem(id);
-        return true;
+        return "Item deleted successfully :)";
     }
 }

@@ -15,16 +15,23 @@ public class CustomerController {
     private CustomerSevice customerSevice;
 
 
-    @PostMapping("save")
-    public boolean saveCustomer(@RequestBody CustomerDTO customerDTO){
+    /*@PostMapping("save")
+    public String  saveCustomer(@RequestBody CustomerDTO customerDTO){
         customerSevice.addCustomer(customerDTO);
-        return true;
+        return "Customer saved successfully :)";
+    }
+*/
+    @PostMapping("save")
+    public String saveCustomer(@RequestBody CustomerDTO customerDTO) {
+        String result = customerSevice.addCustomer(customerDTO);
+        return result;
     }
 
+
     @PutMapping("update")
-    public boolean updateCustomer(@RequestBody CustomerDTO customerDTO){
+    public String updateCustomer(@RequestBody CustomerDTO customerDTO){
         customerSevice.updateCustomer(customerDTO);
-        return true;
+        return "Customer updated Successfully :)";
     }
 
     @GetMapping("getAll")
@@ -33,9 +40,9 @@ public class CustomerController {
     }
 
     @DeleteMapping("delete/{id}")
-    public boolean deleteCustomer(@PathVariable("id") int id) {
+    public String deleteCustomer(@PathVariable("id") int id) {
         customerSevice.deleteCustomer(id);
-        return true;
+        return "Customer deleted successfully :)";
     }
 }
 

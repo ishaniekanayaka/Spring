@@ -35,4 +35,8 @@ public class CustomerDTO {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

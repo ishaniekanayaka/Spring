@@ -15,9 +15,9 @@ public class ItemService {
     @Autowired
     private ItemRepo itemRepo;
 
-    public boolean addItem(ItemDTO itemDTO){
+    public String addItem(ItemDTO itemDTO){
         if (itemRepo.existsById(itemDTO.getCode())){
-            return false;
+            return " Item already exists :(";
         }
         Item item = new Item(
                 itemDTO.getCode(),
@@ -26,7 +26,7 @@ public class ItemService {
                 itemDTO.getQty()
         );
         itemRepo.save(item);
-        return true;
+        return "Item saved successfully :)";
     }
 
     public List<ItemDTO> getAllItems(){

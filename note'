@@ -24,3 +24,12 @@ CustomerController එක "/a" URL path එකට map කරයි.
 @GetMapping | @PostMapping | @PutMapping | @DeleteMapping
 http method එක කියන්න Use කරයි. (Handler method උඩින් දාන annotations)
 
+
+🔹 @RestController → Marks this class as a REST API controller. It tells Spring Boot that this class will handle HTTP requests and return responses.
+🔹 @RequestMapping("api/v1/customer") → Defines the base URL (/api/v1/customer) for all endpoints inside this class.
+🔹 @Autowired → Injects the CustomerSevice class into this controller so that we can call service methods.
+
+✔️ @DeleteMapping("delete/{id}") → Handles DELETE requests at /api/v1/customer/delete/{id}.
+✔️ @PathVariable int id → Extracts the customer ID from the URL.
+✔️ Calls deleteCustomer(id) in CustomerSevice, deleting the customer with the given ID.
+

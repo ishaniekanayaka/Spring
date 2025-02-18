@@ -4,7 +4,9 @@ import lk.ijse.z13_spring_boot.dto.CustomerDTO;
 import lk.ijse.z13_spring_boot.entity.Customer;
 import lk.ijse.z13_spring_boot.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,11 +17,9 @@ public class CustomerSevice {
     @Autowired
     private CustomerRepo customerRepo;
 
-    public boolean addCustomer(CustomerDTO customerDTO ){
-       /* System.out.println("Service method" + customerDTO.getAddress());
-        return true;*/
-        if (customerRepo.existsById(customerDTO.getId())){
-            return false;  // ID already exists
+   /* public String addCustomer(CustomerDTO customerDTO) {
+        if (customerRepo.existsById(customerDTO.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Duplicate ID: Customer already exists :(");
         }
         Customer customer = new Customer(
                 customerDTO.getId(),
@@ -27,7 +27,22 @@ public class CustomerSevice {
                 customerDTO.getAddress()
         );
         customerRepo.save(customer);
-        return true;
+        return "Customer saved successfully :)";
+    }*/
+
+    public String addCustomer(CustomerDTO customerDTO) {
+        if (customerRepo.existsById(customerDTO.getId())) {
+            return " Customer already exists :(";
+        }
+
+        Customer customer = new Customer(
+                customerDTO.getId(),
+                customerDTO.getName(),
+                customerDTO.getAddress()
+        );
+        customerRepo.save(customer);
+
+        return "Customer saved successfully :)";
     }
 
 
@@ -39,6 +54,7 @@ public class CustomerSevice {
             customerRepo.save(customer);
         }
     }
+
 
     public List<CustomerDTO> getAllCustomers() {
         List<Customer> customers = customerRepo.findAll();
