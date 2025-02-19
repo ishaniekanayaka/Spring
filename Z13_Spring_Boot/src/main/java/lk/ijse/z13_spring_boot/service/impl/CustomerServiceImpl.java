@@ -1,18 +1,17 @@
-package lk.ijse.z13_spring_boot.service;
+package lk.ijse.z13_spring_boot.service.impl;
 
 import lk.ijse.z13_spring_boot.dto.CustomerDTO;
 import lk.ijse.z13_spring_boot.entity.Customer;
 import lk.ijse.z13_spring_boot.repo.CustomerRepo;
+import lk.ijse.z13_spring_boot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CustomerSevice {
+public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepo customerRepo;
@@ -30,6 +29,8 @@ public class CustomerSevice {
         return "Customer saved successfully :)";
     }*/
 
+
+    @Override
     public String addCustomer(CustomerDTO customerDTO) {
         if (customerRepo.existsById(customerDTO.getId())) {
             return " Customer already exists :(";
@@ -46,6 +47,7 @@ public class CustomerSevice {
     }
 
 
+    @Override
     public void updateCustomer(CustomerDTO customerDTO) {
         Customer customer = customerRepo.findById(customerDTO.getId()).orElse(null);
         if (customer != null){
@@ -56,6 +58,7 @@ public class CustomerSevice {
     }
 
 
+    @Override
     public List<CustomerDTO> getAllCustomers() {
         List<Customer> customers = customerRepo.findAll();
         return customers.stream().map(customer -> new CustomerDTO(
@@ -63,7 +66,9 @@ public class CustomerSevice {
         )).collect(Collectors.toList());
     }
 
+    @Override
     public void deleteCustomer(int id) {
+
         customerRepo.deleteById(id);
     }
 }

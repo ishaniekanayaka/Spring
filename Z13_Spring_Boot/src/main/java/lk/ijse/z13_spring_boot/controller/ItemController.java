@@ -1,7 +1,7 @@
 package lk.ijse.z13_spring_boot.controller;
 
 import lk.ijse.z13_spring_boot.dto.ItemDTO;
-import lk.ijse.z13_spring_boot.service.ItemService;
+import lk.ijse.z13_spring_boot.service.impl.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/item")
+@CrossOrigin(origins = "http://localhost:63342",allowedHeaders = "*")
 public class ItemController {
 
     @Autowired
-    private ItemService itemService;
+    private ItemServiceImpl itemService;
 
     @PostMapping("save")
     public String saveItem(@RequestBody ItemDTO itemDTO){
